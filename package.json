@@ -1,0 +1,29 @@
+{
+  "name": "rework-bem",
+  "version": "0.1.0",
+  "description": "BEM CSS transform for rework",
+  "main": "index.js",
+  "dependencies": {
+    "rework": "~0.20.2"
+  },
+  "devDependencies": {
+    "semver": "~2.2.1",
+    "jshint": "~2.3.0",
+    "mocha": "~1.14.0",
+    "should": "~3.1.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --require should -R spec ./specs/index.js",
+    "lint": "./node_modules/.bin/jshint *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "arsemyonov/rework-bem"
+  },
+  "keywords": [
+    "rework",
+    "bem"
+  ],
+  "author": "Artyom Semyonov <sevenov@gmail.com>",
+  "license": "MIT"
+}

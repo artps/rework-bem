@@ -1,0 +1,7 @@
+.b-block__element--modifier {
+  key: value;
+}
+
+.b-block__element--modifier .b-block__element {
+  key: value;
+}
