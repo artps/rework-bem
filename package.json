@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "description": "BEM CSS transform for rework",
   "main": "index.js",
-  "dependencies": {
-    "rework": "~0.20.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "semver": "~2.2.1",
     "jshint": "~2.3.0",
     "mocha": "~1.14.0",
-    "should": "~3.1.2"
+    "should": "~3.1.2",
+    "css": "~1.6.0"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --require should -R spec ./specs/index.js",
@@ -22,6 +21,7 @@
   },
   "keywords": [
     "rework",
+    "xcss",
     "bem"
   ],
   "author": "Artyom Semyonov <sevenov@gmail.com>",

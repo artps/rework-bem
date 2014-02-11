@@ -1,5 +1,4 @@
-var rework = require('rework'),
-    path = require('path');
+var path = require('path');
 
 function construct(filename, options, root, namespace) {
   options   = options || {};
@@ -34,5 +33,23 @@ function construct(filename, options, root, namespace) {
 }
 
 module.exports = function(filename, options) {
-  return rework.prefixSelectors(construct(filename, options));
+  var prefix = construct(filename, options);
+  return function(style){
+    style.rules = style.rules.map(function(rule){
+      if (!rule.selectors) {
+        return rule;
+      }
+
+      rule.selectors = rule.selectors.map(function(selector){
+        if (selector === ':root') {
+          return prefix;
+        }
+
+        selector = selector.replace(/^\:root\s?/, '');
+        return [prefix, selector].join(' ');
+      });
+      return rule;
+    });
+    return style;
+  }
 };

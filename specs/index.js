@@ -1,4 +1,4 @@
-var rework = require('rework'),
+var css = require('css'),
     bem = require('../index'),
     fs = require('fs'),
     path = require('path');
@@ -8,7 +8,10 @@ function fixture(filename) {
 }
 
 function transform(filename) {
-  return rework(fixture(filename)).use(bem(filename, { root: 'fixture' })).toString();
+  var ast = css.parse(fixture(filename)),
+      transformer = bem(filename, { root: 'fixture' });
+
+  return css.stringify({ stylesheet: transformer(ast.stylesheet) });
 }
 
 describe('rework-bem', function() {
